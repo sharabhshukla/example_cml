@@ -15,7 +15,7 @@ y_test = np.genfromtxt("data/test_labels.csv")
 
 # Fit a model
 depth = 7
-clf = CatBoostClassifier(max_depth=depth)
+clf = CatBoostClassifier()
 clf.fit(X_train,y_train)
 
 acc = clf.score(X_test, y_test)
