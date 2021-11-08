@@ -1,5 +1,6 @@
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import plot_confusion_matrix
+from lightgbm import LGBMClassifier
 import matplotlib.pyplot as plt
 import json
 import os
@@ -13,8 +14,8 @@ y_test = np.genfromtxt("data/test_labels.csv")
 
 
 # Fit a model
-depth = 2
-clf = RandomForestClassifier(max_depth=depth)
+depth = 7
+clf = LGBMClassifier()
 clf.fit(X_train,y_train)
 
 acc = clf.score(X_test, y_test)
