@@ -1,6 +1,6 @@
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import plot_confusion_matrix
-from catboost import CatBoostClassifier
+from lightgbm import LGBMClassifier
 import matplotlib.pyplot as plt
 import json
 import os
@@ -15,7 +15,7 @@ y_test = np.genfromtxt("data/test_labels.csv")
 
 # Fit a model
 depth = 7
-clf = CatBoostClassifier(iterations=5000)
+clf = LGBMClassifier()
 clf.fit(X_train,y_train)
 
 acc = clf.score(X_test, y_test)
